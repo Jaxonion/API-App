@@ -14,15 +14,30 @@
 
     <div class='input-form'>
       <div class='inner-box'>
-        <input class='whereToSkate input' type='text' placeholder='Where do you want to skate?'>
-        <input class='trickToLearn input' placeholder='Trick you want to learn'>
+        <input class='whereToSkate input' type='text' placeholder='Where do you want to skate? (ZIP CODE)' required>
+        <select class='trickToLearn input' required>
+          <option value="" disabled selected>What trick do you want to learn?</option>
+          <option value='ollie'>Ollie</option>
+          <option value='Fakie Ollie'>Fakie Ollie</option>
+          <option value='kickflip'>Kickflip</option>
+          <option value='heelflip'>Heelflip</option>
+          <option value='Backside Pop-Shuvit'>Backside Pop-Shuvit</option>
+          <option value='Pop-Shuvit'>Pop-Shuvit</option>
+          <option value='Backside 180'>Backside 180</option>
+          <option value='Frontside 180'>Frontside 180</option>
+          <option value='Nollie'>Nollie</option>
+          <option value='Varial'>Varial</option>
+          <option value='Varial Heelflip'>Varial Heelflip</option>
+          <option value='360 flip'>360 flip</option>
+          <option value='Fakie Kickflip'>Fakie Kickflip</option>
+          <option value='Fakie Heelflip'>Fakie Heelflip</option>
+          <option value='Half-Cab'>Half-Cab</option>
+        </select>
         <button class='learnIt input'>Learn It!</button>
       </div>
     </div>
     <div class='container'>
       <div class='left-box hidden'>
-        <div class='top-box small'></div>
-        <div class='bottom-box small'></div>
       </div>
       <div class='right-box hidden'></div>
     </div>
