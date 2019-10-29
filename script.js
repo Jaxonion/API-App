@@ -1,17 +1,18 @@
 function learnItButtonClicked() {
-  $('.input-form').on('click', '.learnIt', event => {
-    console.log(`'learnItButtonClicked' function ran`)
-    $('.right-box').empty()
-    $('.left-box').empty()
-    $('.small').empty()
-    $('.container').addClass('transition')
-    $('.top-box').addClass('top-box-transition')
-    $('.bottom-box').addClass('bottom-box-transition')
-    $('.right-box').css('display', 'flex')
-    $('.left-box').css('display', 'flex')
-    createWeatherUrl()
-    createYoutubeUrl()
-  })
+  $('form').submit(function(e) {
+    e.preventDefault();
+    console.log(`'learnItButtonClicked' function ran`);
+    $('.right-box').empty();
+    $('.left-box').empty();
+    $('.small').empty();
+    $('.container').addClass('transition');
+    $('.top-box').addClass('top-box-transition');
+    $('.bottom-box').addClass('bottom-box-transition');
+    $('.right-box').css('display', 'flex');
+    $('.left-box').css('display', 'flex');
+    createWeatherUrl();
+    createYoutubeUrl();
+  });
 }
 
 
@@ -23,19 +24,28 @@ function createWeatherUrl() {
   let searchQuery = '?zip=' + $('.whereToSkate').val()
   let apiKey = '&APPID=c6074c7eba5c1cd1fa563dd6e3da11ad'
   let fullUrl = baseUrl + searchQuery + apiKey
-  getWeather(fullUrl)
+  getWeather(fullUrl);
 }
 
 function getWeather(fullUrl) {
   fetch(fullUrl)
+  .then(response => {
+    if (response.ok) {
+      return response;
+    }
+    else {
+      throw new Error('weather not found. Try another ZIP code')
+    }
+  })
   .then(response => response.json())
   .then(responseJson => displayWeather(responseJson))
 }
 
 function displayWeather(responseJson) {
-  console.log(responseJson)
+  console.log(responseJson);
+  degrees = Math.round(((responseJson.main.temp - 273.15) * 9/5 + 32)*100) /100
   console.log(responseJson.main.temp)
-  $('.left-box').append(`<h1 class='placeName'>${responseJson.name}, ${responseJson.sys.country}</h1><h1 class='temp'>The temperature is ${responseJson.main.temp} degrees</h1><h1 class='weatherDescription'>${responseJson.weather[0].description}</h1>`)
+  $('.left-box').append(`<h1 class='placeName'>${responseJson.name}, ${responseJson.sys.country}</h1><h1 class='temp'>The temperature is ${degrees} degrees fehrenheit</h1><h1 class='weatherDescription'>${responseJson.weather[0].description}</h1>`)
 }
 
 //Youtube API
