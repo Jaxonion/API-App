@@ -39,6 +39,10 @@ function getWeather(fullUrl) {
   })
   .then(response => response.json())
   .then(responseJson => displayWeather(responseJson))
+  .catch(err => {
+    alert('weather not found for ZIP code')
+    $('.left-box').append(`<div><h1>No results found</h1></div>`)
+  })
 }
 
 function displayWeather(responseJson) {
