@@ -15,13 +15,15 @@
     <div class='input-form'>
       <div class='inner-box'>
         <form class='inner-box'>
+          <label>Where Do You Want to Skate:</label>
           <input class='whereToSkate input' placeholder='Where do you want to skate? (ZIP CODE)' required
         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
         type = "number"
         maxlength = "5"
         max = "99999"
-        min = "10000"
+        pattern="[0-9]{5}"
           />
+          <label>What Trick Do You Want to Learn:</label>
           <select class='trickToLearn input' required>
             <option value="" disabled selected>What trick do you want to learn?</option>
             <option value='ollie'>Ollie</option>

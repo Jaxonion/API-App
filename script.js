@@ -68,6 +68,7 @@ function createYoutubeUrl() {
 //fetches Youtube API data
 function youtubeApiCall(fullUrl) {
   console.log(`'youtubeApiCall' function ran`)
+  console.log(fullUrl)
   fetch(fullUrl)
   .then(response => {
     if (response.ok) {

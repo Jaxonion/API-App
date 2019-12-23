@@ -59,7 +59,7 @@ option {
 .input {
   border: 1px solid black;
   text-align: center;
-  margin-top: 20px;
+  margin-bottom: 20px;
   height: 40px;
   width: 50%;
 }
