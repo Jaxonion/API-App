@@ -30,8 +30,16 @@ header {
   padding-left: 10px;
   background-color: black;
   color: white;
-  font-size: 45px;
+  font-size: 55px;
   letter-spacing: 4px;
+}
+
+label, .learnIt{
+  font-size: 28px;
+}
+
+input, select {
+  font-size: 20px;
 }
 
 
@@ -105,6 +113,7 @@ option {
   width: 100%;
   height: 100%;
   background-color: white;
+  font-size: 25px;
 }
 
 .right-box {
@@ -116,6 +125,7 @@ option {
   height: 100%;
   padding: 10px 10px;
   background-color: white;
+  font-size: 25px;
 }
 
 .top-box-transition {
@@ -157,4 +167,45 @@ option {
 form {
   width: 100%;
   height: 100%;
+}
+
+#areaCode-tip {
+  transform: translateY(-20px);
+  top: -10px;
+  visibility: hidden;
+  opacity: 0;
+  background-color: aquamarine;
+  padding: 0 7px;
+  width: 50%;
+  text-align: center;
+}
+
+.whereToSkate:hover + #areaCode-tip {
+  visibility: visible;
+  opacity: 1;
+}
+
+label {
+  margin: 0;
+  padding: 0;
+}
+
+#trickToLearn-tip {
+  transform: translateY(-20px);
+  top: -10px;
+  visibility: hidden;
+  opacity: 0;
+  background-color: aquamarine;
+  padding: 0 7px;
+  width: 50%;
+  text-align: center;
+}
+
+.trickToLearn:hover + #trickToLearn-tip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.container {
+  visibility: hidden;
 }

@@ -1,10 +1,11 @@
 function learnItButtonClicked() {
   $('form').submit(function(e) {
     e.preventDefault();
-    console.log(`'learnItButtonClicked' function ran`);
+    //console.log(`'learnItButtonClicked' function ran`);
     $('.right-box').empty();
     $('.left-box').empty();
     $('.small').empty();
+    $('.container').css('visibility', 'visible')
     $('.container').addClass('transition');
     $('.top-box').addClass('top-box-transition');
     $('.bottom-box').addClass('bottom-box-transition');
@@ -46,31 +47,32 @@ function getWeather(fullUrl) {
 }
 
 function displayWeather(responseJson) {
-  console.log(responseJson);
+  //console.log(responseJson);
   degrees = Math.round(((responseJson.main.temp - 273.15) * 9/5 + 32)*100) /100
-  console.log(responseJson.main.temp)
-  $('.left-box').append(`<h1 class='placeName'>${responseJson.name}, ${responseJson.sys.country}</h1><h1 class='temp'>The temperature is ${degrees} degrees fehrenheit</h1><h1 class='weatherDescription'>${responseJson.weather[0].description}</h1>`)
+  //console.log(responseJson.main.temp)
+  $('.left-box').append(`<p class='placeName'>${responseJson.name}, ${responseJson.sys.country}</p><p class='temp'>The temperature is ${degrees} degrees fehrenheit</p><p class='weatherDescription'>${responseJson.weather[0].description}</p>`)
 }
 
 //Youtube API
 
 //creates Url for youtube API call
 function createYoutubeUrl() {
-  console.log(`'createYoutubeUrl' function ran`)
+  //console.log(`'createYoutubeUrl' function ran`)
   let baseUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=how+to+'
   let searchInput = $('.trickToLearn').val().split(' ').join('+')
-  let key = 'key=AIzaSyDLlwVQIrGTshAL35APhWShrpj5aaBx1DM'
+  let key = 'key=AIzaSyCQd6sbF8ZTDEYdgQjMof05IRyj0jk-fHE'
   let fullUrl = baseUrl + searchInput + '&' + key
-  //console.log(`fullUrl is '${fullUrl}'`)
+  console.log(`fullUrl is '${fullUrl}'`)
   youtubeApiCall(fullUrl);
 }
 
 //fetches Youtube API data
 function youtubeApiCall(fullUrl) {
-  console.log(`'youtubeApiCall' function ran`)
-  console.log(fullUrl)
+  //console.log(`'youtubeApiCall' function ran`)
+  //console.log(fullUrl)
   fetch(fullUrl)
   .then(response => {
+    console.log(response)
     if (response.ok) {
       return response;
     }
